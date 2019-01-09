@@ -16,7 +16,7 @@ spring:
           password: ltl94018
 
 
-# Config 的端口不能
+# 配置服务器的默认端口为 8888
 server:
   port: 8888
 

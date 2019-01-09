@@ -1,4 +1,7 @@
+---
+# dev配置
 spring:
+  profiles: dev
   application:
     name: spring-cloud-client-feign
 
