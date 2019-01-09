@@ -26,7 +26,8 @@ public class RibbonFallbackProvider implements FallbackProvider {
     @Override
     public String getRoute() {
         // ServiceId，如果需要所有调用都支持回退，则 return "*" 或 return null
-        return "spring-cloud-client-ribbon";
+        // return "spring-cloud-client-ribbon";
+        return "*";
     }
 
     @Override
