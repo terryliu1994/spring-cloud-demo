@@ -1,12 +1,32 @@
+spring:
+  application:
+    name: spring-cloud-client-feign
 ---
 # dev配置
 spring:
   profiles: dev
-  application:
-    name: spring-cloud-client-feign
 
 server:
   port: 8202
+
+# 将本服务注册到eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # eureka服务器地址
+
+# feign启用熔断
+feign:
+  hystrix:
+    enabled: true
+
+---
+# prd配置
+spring:
+  profiles: prd
+
+server:
+  port: 8203
 
 # 将本服务注册到eureka
 eureka:
