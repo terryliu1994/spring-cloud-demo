@@ -1,0 +1,16 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: spring-cloud-eureka
+
+# eureka.client.registerWithEureka:false 和 fetchRegistry:false 禁用客户端行为，来表明自己是一个 Eureka Server.
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

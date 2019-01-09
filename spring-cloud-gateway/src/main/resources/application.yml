@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: spring-cloud-gateway
+
+server:
+  port: 8111
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# zuul配置
+zuul:
+  routes:
+    api-a:
+      path: /api/ribbon/**
+      serviceId: spring-cloud-client-ribbon
+    api-b:
+      path: /api/feign/**
+      serviceId: spring-cloud-client-feign

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: spring-cloud-client-feign
+
+server:
+  port: 8202
+
+# 将本服务注册到eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # eureka服务器地址
+
+# feign启用熔断
+feign:
+  hystrix:
+    enabled: true
