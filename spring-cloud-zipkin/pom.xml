@@ -10,40 +10,44 @@
         <relativePath>../spring-cloud-dependencies/pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>spring-cloud-gateway</artifactId>
+    <artifactId>spring-cloud-zipkin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <name>spring-cloud-zipkin</name>
     <packaging>jar</packaging>
-    <name>spring-cloud-gateway</name>
-    <description>spring-cloud-gateway</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
-    </properties>
+    <description>Demo project for Spring Cloud ZipKin</description>
+
 
     <dependencies>
-
+        <!-- 配置中心 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <!-- 服务注册 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-
-        <!-- zuul -->
+        <!-- 链路监追踪 start, 版本号在dependencies项目中统一管理 -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-ui</artifactId>
+        </dependency>
+        <!-- 链路监追踪 end -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <!--链路追踪-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
     </dependencies>
 
@@ -52,8 +56,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.terry.zipkin.ZipkinApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 </project>

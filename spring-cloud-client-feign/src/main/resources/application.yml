@@ -5,6 +5,7 @@ spring:
       # 必须在 bootstrap.yml或是 bootstrap.properties 中配置，原因是 bootstrap 开头的配置文件会被优先加载和配置
       uri: http://localhost:8888
       name: application-feign
+      # 配置文件环境
       profile: dev
       label: master
 

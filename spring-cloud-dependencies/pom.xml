@@ -24,8 +24,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
+        <zipkin.version>2.10.1</zipkin.version>
     </properties>
 
+    <!-- 版本管理 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -35,6 +37,23 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- 链路监追踪 start, 版本号在dependencies项目中统一管理 -->
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-server</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-ui</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+            <!-- 链路监追踪 end -->
         </dependencies>
     </dependencyManagement>
 
